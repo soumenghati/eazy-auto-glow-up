@@ -32,9 +32,10 @@ function Contact() {
       <section className="container-page py-16">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
           <div className="space-y-6">
-            <Info icon={MapPin} title="Showroom">128 Parramatta Rd, Sydney NSW 2000</Info>
-            <Info icon={Phone} title="Phone">1300 EAZY AUTO (1300 329 928)</Info>
-            <Info icon={Mail} title="Email">sales@eazyauto.com.au</Info>
+            <Info icon={MapPin} title="Location">Melbourne, Victoria, Australia</Info>
+            <Info icon={Phone} title="Phone">0434 366 818</Info>
+            <Info icon={Mail} title="Email">autoeazy.au@gmail.com</Info>
+            <Info icon={MapPin} title="Business details">ACN: 669 553 717<br />LMCT: 0012637</Info>
             <Info icon={Clock} title="Open hours">
               Mon–Fri: 9am – 6pm<br />Sat: 9am – 5pm<br />Sun: 10am – 4pm
             </Info>
