@@ -42,11 +42,11 @@ export function Header() {
 
         <div className="hidden items-center gap-3 md:flex">
           <a
-            href="tel:1300329928"
+            href="tel:0434366818"
             className="inline-flex items-center gap-2 rounded-md bg-ink px-4 py-2 text-sm font-semibold text-ink-foreground shadow-amber transition-transform hover:-translate-y-0.5"
           >
             <Phone className="h-4 w-4 text-amber" />
-            1300 EAZY AUTO
+            0434 366 818
           </a>
         </div>
 
@@ -75,11 +75,11 @@ export function Header() {
               </Link>
             ))}
             <a
-              href="tel:1300329928"
+              href="tel:0434366818"
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-ink px-4 py-2.5 text-sm font-semibold text-ink-foreground"
             >
               <Phone className="h-4 w-4 text-amber" />
-              Call 1300 EAZY AUTO
+              Call 0434 366 818
             </a>
           </div>
         </div>
