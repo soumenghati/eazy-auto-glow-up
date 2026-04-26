@@ -9,18 +9,540 @@
       content="Buy quality used cars across Australia. Browse hand-picked vehicles, get instant finance, and trade in with EazyAuto."
     />
     <meta name="author" content="EazyAuto" />
-
     <meta property="og:title" content="EazyAuto — Quality Used Cars in Australia" />
     <meta
       property="og:description"
       content="Buy quality used cars across Australia. Browse hand-picked vehicles, get instant finance, and trade in with EazyAuto."
     />
     <meta property="og:type" content="website" />
-
     <meta name="twitter:card" content="summary_large_image" />
+    <style>
+      :root {
+        --ink: #111827;
+        --ink-soft: #374151;
+        --amber: #f5b01f;
+        --amber-dark: #d99100;
+        --surface: #f6f7f9;
+        --line: #e5e7eb;
+        --white: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--white);
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.94);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(16px);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        min-height: 72px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+
+      .mark {
+        display: grid;
+        width: 40px;
+        height: 40px;
+        place-items: center;
+        border-radius: 8px;
+        color: var(--amber);
+        background: var(--ink);
+        font-weight: 900;
+      }
+
+      .brand span span {
+        color: var(--amber-dark);
+      }
+
+      .links {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        color: var(--ink-soft);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .phone,
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        background: var(--ink);
+        color: var(--white);
+        font-weight: 800;
+        padding: 12px 18px;
+      }
+
+      .phone {
+        white-space: nowrap;
+      }
+
+      .button.primary {
+        background: var(--amber);
+        color: var(--ink);
+      }
+
+      .hero {
+        position: relative;
+        min-height: 620px;
+        overflow: hidden;
+        color: var(--white);
+        background: var(--ink);
+      }
+
+      .hero img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center right;
+        opacity: 0.72;
+      }
+
+      .hero::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background: linear-gradient(90deg, rgba(17, 24, 39, 0.96), rgba(17, 24, 39, 0.72), rgba(17, 24, 39, 0.12));
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 650px;
+        padding: 112px 0;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        border: 1px solid rgba(245, 176, 31, 0.45);
+        border-radius: 999px;
+        padding: 8px 12px;
+        color: var(--amber);
+        background: rgba(245, 176, 31, 0.12);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        letter-spacing: -0.03em;
+        line-height: 1.05;
+      }
+
+      h1 {
+        margin-top: 24px;
+        font-size: clamp(48px, 7vw, 86px);
+      }
+
+      h1 span,
+      h2 span {
+        color: var(--amber);
+      }
+
+      .hero p {
+        max-width: 520px;
+        margin: 24px 0 0;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 20px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 34px;
+      }
+
+      section {
+        padding: 82px 0;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 34px;
+      }
+
+      .label {
+        margin: 0 0 8px;
+        color: var(--amber-dark);
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        font-size: clamp(34px, 4vw, 48px);
+      }
+
+      .grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .types {
+        grid-template-columns: repeat(6, 1fr);
+      }
+
+      .type-card,
+      .feature-card,
+      .contact-card {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--white);
+        box-shadow: 0 10px 28px rgba(17, 24, 39, 0.06);
+      }
+
+      .type-card {
+        padding: 24px 14px;
+        text-align: center;
+        font-weight: 800;
+      }
+
+      .type-card strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 30px;
+      }
+
+      .surface {
+        background: var(--surface);
+      }
+
+      .cars {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .car {
+        overflow: hidden;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: var(--white);
+      }
+
+      .car img {
+        width: 100%;
+        height: 210px;
+        object-fit: cover;
+      }
+
+      .car-body {
+        padding: 20px;
+      }
+
+      .car h3 {
+        font-size: 22px;
+      }
+
+      .price {
+        margin-top: 12px;
+        color: var(--amber-dark);
+        font-size: 22px;
+        font-weight: 900;
+      }
+
+      .features,
+      .contact-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .feature-card,
+      .contact-card {
+        padding: 28px;
+      }
+
+      .feature-card h3,
+      .contact-card h3 {
+        font-size: 22px;
+      }
+
+      .feature-card p,
+      .contact-card p {
+        color: var(--ink-soft);
+      }
+
+      .cta {
+        border-radius: 18px;
+        padding: 46px;
+        color: var(--white);
+        background: var(--ink);
+      }
+
+      .cta-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      footer {
+        color: rgba(255, 255, 255, 0.76);
+        background: var(--ink);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1.4fr;
+        gap: 32px;
+        padding: 56px 0;
+      }
+
+      footer h3,
+      footer strong {
+        color: var(--white);
+      }
+
+      .legal {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 20px 0;
+        font-size: 13px;
+      }
+
+      @media (max-width: 860px) {
+        .links {
+          display: none;
+        }
+
+        .hero {
+          min-height: auto;
+        }
+
+        .hero-content {
+          padding: 84px 0;
+        }
+
+        .section-head,
+        .cta-inner {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .types,
+        .cars,
+        .features,
+        .contact-grid,
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .types {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <header>
+      <div class="container nav">
+        <a class="brand" href="/" aria-label="EazyAuto home">
+          <span class="mark">E</span>
+          <span>eazy<span>auto</span></span>
+        </a>
+        <nav class="links" aria-label="Main navigation">
+          <a href="#inventory">Inventory</a>
+          <a href="#finance">Finance</a>
+          <a href="#sell">Sell Your Car</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a class="phone" href="tel:0434366818">Phone: 0434 366 818</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <img src="src/assets/hero-car.jpg" alt="Modern vehicle on the road" />
+        <div class="container hero-content">
+          <span class="eyebrow">Australia-wide delivery</span>
+          <h1>Find your next ride. <span>Easily.</span></h1>
+          <p>Hand-picked used cars, transparent pricing, simple finance options, and friendly support from enquiry to handover.</p>
+          <div class="actions">
+            <a class="button primary" href="#inventory">Browse Inventory</a>
+            <a class="button" href="#contact">Contact Us</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="inventory">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="label">Browse</p>
+              <h2>Shop by body type</h2>
+            </div>
+          </div>
+          <div class="grid types">
+            <div class="type-card"><strong>🚙</strong>SUV</div>
+            <div class="type-card"><strong>🚗</strong>Sedan</div>
+            <div class="type-card"><strong>🛻</strong>Ute</div>
+            <div class="type-card"><strong>🚘</strong>Hatch</div>
+            <div class="type-card"><strong>🚐</strong>Van</div>
+            <div class="type-card"><strong>⚡</strong>Hybrid</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="surface">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="label">Featured</p>
+              <h2>This week's picks</h2>
+            </div>
+          </div>
+          <div class="grid cars">
+            <article class="car">
+              <img src="src/assets/car-1.jpg" alt="Featured used SUV" />
+              <div class="car-body">
+                <h3>Quality Used SUV</h3>
+                <p>Inspected vehicle with history report and flexible finance options.</p>
+                <div class="price">Contact for price</div>
+              </div>
+            </article>
+            <article class="car">
+              <img src="src/assets/car-2.jpg" alt="Featured used sedan" />
+              <div class="car-body">
+                <h3>Reliable Family Sedan</h3>
+                <p>Comfortable, clean, and ready for Australian roads.</p>
+                <div class="price">Contact for price</div>
+              </div>
+            </article>
+            <article class="car">
+              <img src="src/assets/car-3.jpg" alt="Featured used ute" />
+              <div class="car-body">
+                <h3>Work-Ready Ute</h3>
+                <p>Practical vehicles for business, trades, and weekend use.</p>
+                <div class="price">Contact for price</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container grid features">
+          <article class="feature-card">
+            <h3>Quality Guaranteed</h3>
+            <p>Every vehicle is selected with care and checked before sale.</p>
+          </article>
+          <article id="finance" class="feature-card">
+            <h3>Finance Made Easy</h3>
+            <p>Simple finance support to help you move quickly and confidently.</p>
+          </article>
+          <article id="sell" class="feature-card">
+            <h3>Trade-In Welcome</h3>
+            <p>Sell your current car or trade it toward your next vehicle.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="surface">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="label">Contact</p>
+              <h2>Speak with EazyAuto</h2>
+            </div>
+          </div>
+          <div class="grid contact-grid">
+            <article class="contact-card">
+              <h3>Phone</h3>
+              <p><a href="tel:0434366818">0434 366 818</a></p>
+            </article>
+            <article class="contact-card">
+              <h3>Email</h3>
+              <p><a href="mailto:autoeazy.au@gmail.com">autoeazy.au@gmail.com</a></p>
+            </article>
+            <article class="contact-card">
+              <h3>Business Details</h3>
+              <p>ACN: 669553717<br />LMCT: 0012637</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container cta">
+          <div class="cta-inner">
+            <div>
+              <h2>Ready to upgrade? <span>Get in touch.</span></h2>
+              <p>Call or email EazyAuto today for vehicle availability, finance, or trade-in enquiries.</p>
+            </div>
+            <a class="button primary" href="tel:0434366818">Call 0434 366 818</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <h3>eazyauto</h3>
+          <p>Australia's easy way to buy quality used cars with transparent support and clear communication.</p>
+        </div>
+        <div>
+          <strong>Explore</strong>
+          <p><a href="#inventory">Inventory</a></p>
+          <p><a href="#finance">Finance</a></p>
+          <p><a href="#sell">Sell Your Car</a></p>
+        </div>
+        <div>
+          <strong>Contact</strong>
+          <p>Melbourne, Victoria, Australia</p>
+          <p><a href="tel:0434366818">0434 366 818</a></p>
+          <p><a href="mailto:autoeazy.au@gmail.com">autoeazy.au@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="legal">
+        <div class="container">© EazyAuto Pty Ltd. ACN 669553717. Licensed Motor Vehicle Dealer · LMCT 0012637</div>
+      </div>
+    </footer>
   </body>
 </html>
