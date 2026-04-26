@@ -33,17 +33,17 @@ export function Footer() {
         <div>
           <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-amber">Contact</h4>
           <ul className="space-y-3 text-sm text-ink-foreground/70">
-            <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-amber" />128 Parramatta Rd, Sydney NSW 2000</li>
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-amber" />1300 EAZY AUTO</li>
-            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-amber" />sales@eazyauto.com.au</li>
+            <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-amber" />Melbourne, Victoria, Australia</li>
+            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-amber" />0434 366 818</li>
+            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-amber" />autoeazy.au@gmail.com</li>
           </ul>
         </div>
       </div>
 
       <div className="border-t border-ink-foreground/10">
         <div className="container-page flex flex-col gap-2 py-6 text-xs text-ink-foreground/50 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} EazyAuto Pty Ltd. ABN 00 000 000 000.</p>
-          <p>Licensed Motor Vehicle Dealer · MD 000000</p>
+          <p>© {new Date().getFullYear()} EazyAuto Pty Ltd. ACN 669 553 717.</p>
+          <p>Licensed Motor Vehicle Dealer · LMCT 0012637</p>
         </div>
       </div>
     </footer>
